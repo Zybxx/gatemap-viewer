@@ -411,4 +411,7 @@ function init() {
 			show_alert("This is an initial attempt to fork and improve the previous gatemap. Work is currently in progress to automatically refresh the gates. Until then, I need to manually run the update. If the new gate is not available yet, please be patient.");
 		}
 	}
+	else {
+			show_alert("This is an initial attempt to fork and improve the previous gatemap. Work is currently in progress to automatically refresh the gates. Until then, I need to manually run the update. If the new gate is not available yet, please be patient.");
+	}
 }
