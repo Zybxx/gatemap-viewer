@@ -315,6 +315,30 @@ function add_style() {
 	document.querySelector(`div.entry[data-value="${current_gate_index}"]>img`).setAttribute('style', 'opacity: 1');
 }
 
+function show_alert(message) {
+	let d1 = document.createElement('div');
+	d1.setAttribute('class', 'warning-cover');
+	let d = document.createElement('div');
+	d.setAttribute('class', 'warning-box');
+	let p = document.createElement('p');
+	p.setAttribute('class', 'warning-head dark-bg');
+	p.innerText = 'Warning';
+	d.appendChild(p);
+	p = document.createElement('p');
+	p.setAttribute('class', 'warning-body');
+	p.innerText = message;
+	d.appendChild(p);
+	p = document.createElement('p');
+	p.setAttribute('class', 'warning-button');
+	p.innerText = 'OK';
+	p.addEventListener('click', function() {
+		this.parentElement.parentElement.remove();
+	});
+	d.appendChild(p);
+	d1.appendChild(d);
+	document.body.appendChild(d1);
+}
+
 // function to run when the page loads
 function init() {
 	// why write the page with the tickmarks when i can just do this
@@ -377,10 +401,14 @@ function init() {
 			p.innerText = 'OK';
 			p.addEventListener('click', function() {
 				this.parentElement.parentElement.remove();
+				show_alert("This is an initial attempt to fork and improve the previous gatemap. Work is currently in progress to automatically refresh the gates. Until then, I need to manually run the update. If the new gate is not available yet, please be patient.");
 			});
 			d.appendChild(p);
 			d1.appendChild(d);
 			document.body.appendChild(d1);
+		}
+		else {
+			show_alert("This is an initial attempt to fork and improve the previous gatemap. Work is currently in progress to automatically refresh the gates. Until then, I need to manually run the update. If the new gate is not available yet, please be patient.");
 		}
 	}
 }
